@@ -2,7 +2,7 @@ import json
 import pdal
 
 REGION = "IA_FullState"
-BOUND = "([-10425171.940, -10423171.940], [5164494.710, 5166494.710])"
+BOUND = "([-10424171.940, -10423171.940], [5165494.710, 5166494.710])"
 PUBLIC_DATA_PATH = "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/"
 PIPELINE_PATH = "./get_data.json"
 
