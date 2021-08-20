@@ -4,21 +4,25 @@
         "bounds": "",
         "filename": "",
         "type": "readers.ept",
-        "tag": "readdata"
+        "tag": "read_data"
       },
       {
           "polygon": "",
-          "type": "filters.crop"
+          "type": "filters.crop",
+          "inputs": [ "read_data" ],
+          "tag": "crop"
       },
       {
-        "limits": "Classification![2:7], Classification![9:9]",
         "type": "filters.range",
-        "tag": "nonoise"
+        "inputs": [ "crop" ],
+        "limits": "Classification![7:7]",
+        "tag": "no_noise"
       },
       {
+        "type": "filters.reprojection",
         "in_srs":"EPSG:3857",
         "out_srs": "",
-        "type": "filters.reprojection",
+        "inputs": [ "no_noise" ],
         "tag": "reprojection"
       },
       {
