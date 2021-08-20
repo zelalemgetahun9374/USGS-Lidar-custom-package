@@ -30,6 +30,7 @@ class Fetch3depData:
         polygon_input += '))'
 
         print(polygon_input)
+        print(f"({[minx, maxx]},{[miny,maxy]})")
 
         return f"({[minx, maxx]},{[miny,maxy]})", polygon_input
 
