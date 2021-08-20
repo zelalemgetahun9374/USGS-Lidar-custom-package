@@ -56,17 +56,29 @@ class Fetch3depData:
 
         try:
             pipeline.execute()
-            metadata = pipeline.metadata
-            log = pipeline.log
             self.logger.info(f'Pipeline executed successfully.')
-            print(metadata)
             return pipeline
         except RuntimeError as e:
             self.logger.exception('Pipeline execution failed')
             print(e)
 
+    def make_geo_df(self, arr):
+        geometry_points = [Point(x, y) for x, y in zip(arr["X"], arr["Y"])]
+        elevetions = arr["Z"]
+        df = gpd.GeoDataFrame(columns=["elevation", "geometry"])
+        df['elevation'] = elevetions
+        df['geometry'] = geometry_points
+        df = df.set_geometry("geometry")
+        df.set_crs(self.output_epsg, inplace=True)
+        return df
+
+    def get_data(self, polygon: Polygon, epsg):
+        pipeline = self.run_pipeline(polygon, epsg)
+        arr = pipeline.arrays[0]
+        return self.make_geo_df(arr)
+
 if(__name__ == '__main__'):
-    MINX, MINY, MAXX, MAXY = [-93.756155, 41.918015, -93.747334, 41.921429]
+    MINX, MINY, MAXX, MAXY = [-93.756155, 41.918015, -93.756055, 41.918115]
     polygon = Polygon(((MINX, MINY), (MINX, MAXY), (MAXX, MAXY), (MAXX, MINY), (MINX, MINY)))
     data_fetcher = Fetch3depData()
-    data_fetcher.run_pipeline(polygon, epsg=4326)
+    print(data_fetcher.get_data(polygon, epsg=4326))
