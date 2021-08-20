@@ -1,0 +1,14 @@
+19-08-2021 14:21:44 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Jsov file read from ./get_data.json.
+19-08-2021 14:24:11 - [INFO] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 35) - Pipeline executed successfully.
+20-08-2021 12:32:00 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 12:40:33 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 12:41:07 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 12:41:31 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 12:55:43 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: readers.ept: Error reading tile: Could not read from s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept-data/6-28-31-32.laz
