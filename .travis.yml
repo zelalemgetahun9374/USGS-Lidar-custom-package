@@ -14,6 +14,6 @@ cache:
   - pip
 
 # Command to run tests, e.g. python setup.py test
-script:
+# script:
   # - cd tests/
   # - python3 test_file_handler.py
