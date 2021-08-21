@@ -14,6 +14,9 @@ class Fetch3depData:
         self.pipeline_json = self.file_handler.read_json(pipeline_json_path)
         self.public_data_url = public_data_url
         self.input_epsg = 3857
+        self.metadata = self.file_handler.read_csv("../assets/usgs_3dep_metadata.csv")
+        values = {"year": 0}
+        self.metadata.fillna(value=values, inplace=True)
 
     def get_polygon_boundaries(self, polygon: Polygon):
         polygon_df = gpd.GeoDataFrame([polygon], columns=['geometry'])
@@ -72,13 +75,47 @@ class Fetch3depData:
         df.set_crs(self.output_epsg, inplace=True)
         return df
 
+    def get_regions(self, polygon: Polygon, epsg):
+        self.output_epsg = epsg
+        polygon_df = gpd.GeoDataFrame([polygon], columns=['geometry'])
+
+        polygon_df.set_crs(epsg=self.output_epsg, inplace=True)
+        polygon_df['geometry'] = polygon_df['geometry'].to_crs(epsg=self.input_epsg)
+        minx, miny, maxx, maxy = polygon_df['geometry'][0].bounds
+
+        cond_xmin = self.metadata.xmin <= minx
+        cond_xmax = self.metadata.xmax >= maxx
+        cond_ymin = self.metadata.ymin <= miny
+        cond_ymax = self.metadata.ymax >= maxy
+
+        df = self.metadata[cond_xmin & cond_xmax & cond_ymin & cond_ymax]
+        sort_df = df.sort_values(by=['year'])
+        regions = sort_df['filename'].to_list()
+        return regions
+
     def get_data(self, polygon: Polygon, epsg):
-        pipeline = self.run_pipeline(polygon, epsg)
+        regions = self.get_regions(polygon, epsg)
+        region_dict = {}
+        for region in regions:
+            year = int(self.metadata[self.metadata.filename == region].year.values[0])
+            if year == 0:
+                year = 'unknown'
+            region_df = self.get_region_data(polygon, epsg, region)
+            empty = region_df.empty
+            if not empty:
+                region_dict[year] = region_df
+
+        return region_dict
+
+
+    def get_region_data(self, polygon: Polygon, epsg, region: str):
+        pipeline = self.run_pipeline(polygon, epsg, region)
         arr = pipeline.arrays[0]
         return self.make_geo_df(arr)
+
 
 if(__name__ == '__main__'):
     MINX, MINY, MAXX, MAXY = [-93.756155, 41.918015, -93.756055, 41.918115]
     polygon = Polygon(((MINX, MINY), (MINX, MAXY), (MAXX, MAXY), (MAXX, MINY), (MINX, MINY)))
     data_fetcher = Fetch3depData()
-    print(data_fetcher.get_data(polygon, epsg=4326))
+    data_fetcher.get_data(polygon, epsg=4326)
