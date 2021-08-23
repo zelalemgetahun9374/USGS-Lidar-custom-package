@@ -1,0 +1,183 @@
+19-08-2021 14:21:44 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Jsov file read from ./get_data.json.
+19-08-2021 14:24:11 - [INFO] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 35) - Pipeline executed successfully.
+20-08-2021 12:32:00 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 12:40:33 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 12:41:07 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 12:41:31 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 12:55:43 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: readers.ept: Error reading tile: Could not read from s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept-data/6-28-31-32.laz
+20-08-2021 13:55:25 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 13:57:16 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: readers.ept: Could not read from s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept-hierarchy/0-0-0-0.json
+20-08-2021 14:02:32 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:02:32 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: JSON pipeline: Invalid pipeline: undefined stage tag 'read_data'.
+20-08-2021 14:03:47 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:03:50 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: filters.assign: Unexpected argument 'out_srs'.
+20-08-2021 14:04:47 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:04:50 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: filters.assign: Unexpected argument 'out_srs'.
+20-08-2021 14:07:29 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:07:30 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: filters.assign: Unexpected argument 'out_srs'.
+20-08-2021 14:08:27 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:08:44 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: filters.assign: Unexpected argument 'out_srs'.
+20-08-2021 14:11:41 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:11:42 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: filters.assign: Unexpected argument 'out_srs'.
+20-08-2021 14:13:08 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:13:10 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 65) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 58, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: filters.assign: Unexpected argument 'out_srs'.
+20-08-2021 14:18:06 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:18:09 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 65) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 58, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: filters.assign: Unexpected argument 'out_srs'.
+20-08-2021 14:19:38 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:19:45 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 65) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 58, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: filters.assign: Unexpected argument 'out_srs'.
+20-08-2021 14:20:36 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:21:50 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 65) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 58, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: readers.ept: Could not read from s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept-hierarchy/0-0-0-0.json
+20-08-2021 14:31:21 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:39:17 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 65) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 58, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: readers.ept: Could not read from s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept-hierarchy/0-0-0-0.json
+20-08-2021 14:42:44 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 14:49:43 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 65) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 58, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: readers.ept: Could not read from s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept-hierarchy/0-0-0-0.json
+20-08-2021 15:02:01 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 15:04:02 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 65) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 58, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: readers.ept: Could not read from s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept-hierarchy/0-0-0-0.json
+20-08-2021 15:06:22 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 15:13:22 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 65) - Pipeline execution failed
+Traceback (most recent call last):
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 58, in run_pipeline
+    pipeline.execute()
+  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
+    return self.p.execute()
+  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
+RuntimeError: readers.ept: Could not read from s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept-hierarchy/0-0-0-0.json
+20-08-2021 16:17:38 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 16:18:14 - [INFO] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 61) - Pipeline executed successfully.
+20-08-2021 16:42:04 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 16:43:12 - [INFO] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 59) - Pipeline executed successfully.
+20-08-2021 17:38:26 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 17:39:13 - [INFO] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 59) - Pipeline executed successfully.
+20-08-2021 17:44:53 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 17:45:26 - [INFO] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 59) - Pipeline executed successfully.
+20-08-2021 21:53:27 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 21:54:10 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 21:54:42 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 21:55:06 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 21:55:31 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 21:55:45 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 22:46:28 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 22:46:28 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+20-08-2021 22:55:13 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 22:55:14 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+20-08-2021 22:56:36 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 22:56:36 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+20-08-2021 22:57:19 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 22:57:19 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+20-08-2021 23:04:18 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 23:04:18 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+20-08-2021 23:05:51 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 23:05:51 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+20-08-2021 23:08:15 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 23:08:15 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+20-08-2021 23:19:17 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 23:19:18 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+20-08-2021 23:20:15 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 23:20:15 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+20-08-2021 23:20:49 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
+20-08-2021 23:20:49 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.

@@ -1,14 +1,370 @@
-19-08-2021 14:21:44 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Jsov file read from ./get_data.json.
-19-08-2021 14:24:11 - [INFO] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 35) - Pipeline executed successfully.
-20-08-2021 12:32:00 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
-20-08-2021 12:40:33 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
-20-08-2021 12:41:07 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
-20-08-2021 12:41:31 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ./get_data.json.
-20-08-2021 12:55:43 - [ERROR] -  __main__ - (fetch_3dep_data.py).run_pipeline(line 64) - Pipeline execution failed
+22-08-2021 14:40:22 - [ERROR] -  file_handler - (file_handler.py).read_json(line 35) - File not found.
 Traceback (most recent call last):
-  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/fetch_3dep_data.py", line 57, in run_pipeline
-    pipeline.execute()
-  File "/home/z/anaconda3/envs/geo_env/lib/python3.9/site-packages/pdal/pipeline.py", line 40, in execute
-    return self.p.execute()
-  File "libpdalpython.pyx", line 180, in pdal.libpdalpython.PyPipeline.execute
-RuntimeError: readers.ept: Error reading tile: Could not read from s3-us-west-2.amazonaws.com/usgs-lidar-public/IA_FullState/ept-data/6-28-31-32.laz
+  File "/home/z/Documents/USGS-Lidar-custom-package/scripts/file_handler.py", line 29, in read_json
+    with open(json_path) as js:
+FileNotFoundError: [Errno 2] No such file or directory: './get_data.json'
+22-08-2021 14:40:23 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 14:41:14 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 14:41:14 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 14:41:14 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 14:41:14 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 15:03:30 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 15:03:30 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 15:05:56 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 62) - Pipeline executed successfully.
+22-08-2021 15:06:23 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 62) - Pipeline executed successfully.
+22-08-2021 15:06:33 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 62) - Pipeline executed successfully.
+22-08-2021 15:07:57 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 62) - Pipeline executed successfully.
+22-08-2021 15:08:05 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 62) - Pipeline executed successfully.
+22-08-2021 15:08:20 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 62) - Pipeline executed successfully.
+22-08-2021 15:08:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 62) - Pipeline executed successfully.
+22-08-2021 15:08:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 62) - Pipeline executed successfully.
+22-08-2021 15:22:20 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 15:22:21 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 15:24:24 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 15:24:40 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 15:24:47 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 15:25:41 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 15:25:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 15:25:58 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 15:26:03 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 15:26:05 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:05:52 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 16:05:52 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 16:05:55 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 16:05:55 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 16:06:50 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:06:50 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:06:59 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:06:59 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:03 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:03 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:35 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:35 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:41 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:41 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:47 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:47 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:07:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:09:20 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 16:09:20 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 16:09:20 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 16:09:20 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 16:09:20 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 16:09:20 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 16:10:17 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:17 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:17 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:24 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:24 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:24 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:30 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:30 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:30 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:52 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:52 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:52 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:58 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:58 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:10:58 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:11:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:11:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:11:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:11:06 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:11:06 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:11:06 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:12:31 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 16:12:31 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 16:13:38 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:13:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:13:51 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:14:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:14:11 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:14:19 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:14:25 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:14:27 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:25:36 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 16:25:37 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 16:26:43 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:26:54 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:26:58 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:27:19 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:27:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:27:35 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:27:51 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:27:53 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:51:10 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 16:51:10 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 16:52:20 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:52:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:52:32 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:52:51 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:52:55 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:53:01 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:53:06 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:53:09 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:54:09 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 16:54:09 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 16:55:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:55:15 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:55:20 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:55:40 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:55:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:55:55 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:56:00 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 16:56:03 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:08:19 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:08:19 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:08:19 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:08:19 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:09:24 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:09:24 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:09:34 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:09:34 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:09:38 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:09:38 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:12 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:12 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:19 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:19 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:25 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:25 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:10:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:11:36 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:11:36 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:11:36 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:11:36 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:11:36 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:11:36 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:12:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:12:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:12:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:12:56 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:12:56 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:12:56 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:00 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:00 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:00 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:29 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:29 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:29 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:34 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:34 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:34 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:42 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:42 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:42 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:48 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:48 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:13:48 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:15:07 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:15:07 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:15:07 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:15:07 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:15:07 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:15:07 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:15:07 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:15:07 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:15:57 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:15:57 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:15:57 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:15:57 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:17 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:17 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:17 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:17 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:21 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:21 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:21 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:21 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:50 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:50 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:50 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:16:50 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:00 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:00 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:00 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:00 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:14 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:14 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:14 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:17:14 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:19:17 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:20:32 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:32 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:32 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:32 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:32 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:53 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:53 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:53 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:53 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:20:53 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:18 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:18 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:18 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:18 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:18 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:21 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:21 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:21 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:21 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:21 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:37 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:37 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:37 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:37 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:37 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:42 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:42 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:42 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:42 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:42 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:45 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:45 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:45 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:45 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:21:45 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:42:22 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 17:44:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:44:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:44:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:44:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:44:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:44:08 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:07 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:22 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:22 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:22 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:22 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:22 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:22 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:33 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:33 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:33 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:33 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:33 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:33 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:41 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:41 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:41 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:41 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:41 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:41 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 17:45:44 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:32:54 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 21:32:54 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 21:34:39 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:35:26 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:35:31 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:35:49 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:35:54 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:35:59 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:36:04 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:36:06 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:46:00 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 21:46:00 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../scripts/get_data.json.
+22-08-2021 21:46:00 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 21:46:00 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+22-08-2021 21:47:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:47:28 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:02 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:02 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:12 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:12 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:25 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:25 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:31 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:31 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:38 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:38 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:45 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:45 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:53 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+22-08-2021 21:48:53 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+23-08-2021 12:17:15 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../assets/get_data.json.
+23-08-2021 12:17:15 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+23-08-2021 12:18:30 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+23-08-2021 12:19:29 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+23-08-2021 12:19:38 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+23-08-2021 12:19:50 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+23-08-2021 12:19:54 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+23-08-2021 12:19:59 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+23-08-2021 12:20:09 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+23-08-2021 12:20:11 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 59) - Pipeline executed successfully.
+23-08-2021 13:44:15 - [INFO] -  file_handler - (file_handler.py).read_json(line 31) - Json file read from ../assets/get_data.json.
+23-08-2021 13:44:16 - [INFO] -  file_handler - (file_handler.py).read_csv(line 21) - Csv file read from ../assets/usgs_3dep_metadata.csv.
+23-08-2021 13:45:34 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 99) - Pipeline executed successfully.
+23-08-2021 13:46:13 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 99) - Pipeline executed successfully.
+23-08-2021 13:46:17 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 99) - Pipeline executed successfully.
+23-08-2021 13:46:46 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 99) - Pipeline executed successfully.
+23-08-2021 13:46:51 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 99) - Pipeline executed successfully.
+23-08-2021 13:46:57 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 99) - Pipeline executed successfully.
+23-08-2021 13:47:01 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 99) - Pipeline executed successfully.
+23-08-2021 13:47:03 - [INFO] -  lidar_processor - (lidar_processor.py).run_pipeline(line 99) - Pipeline executed successfully.
