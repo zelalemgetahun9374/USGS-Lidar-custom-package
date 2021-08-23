@@ -24,22 +24,6 @@
         "out_srs": "",
         "inputs": [ "no_noise" ],
         "tag": "reprojection"
-      },
-      {
-        "filename": "",
-        "inputs": [ "reprojection" ],
-        "tag": "writerslas",
-        "type": "writers.las"
-      },
-      {
-        "filename": "",
-        "gdalopts": "tiled=yes,     compress=deflate",
-        "inputs": [ "writerslas" ],
-        "nodata": -9999,
-        "output_type": "idw",
-        "resolution": 1,
-        "type": "writers.gdal",
-        "window_size": 6
       }
     ]
   }
