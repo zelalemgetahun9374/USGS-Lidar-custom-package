@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.1" />
+<title>lidar_processor API documentation</title>
+<meta name="description" content="" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>lidar_processor</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import pdal
+import json
+import geopandas as gpd
+import matplotlib.pyplot as plt
+from shapely.geometry import Polygon, Point
+
+from app_logger import App_Logger
+from file_handler import FileHandler
+
+class LidarProcessor:
+    &#34;&#34;&#34;
+    This class contains functons useful for fetching, manipulating, and visualizing LIDAR point cloud data.
+    &#34;&#34;&#34;
+
+    def __init__(self, public_data_url: str = &#34;https://s3-us-west-2.amazonaws.com/usgs-lidar-public/&#34;, pipeline_json_path: str=&#34;../assets/get_data.json&#34;) -&gt; None:
+        &#34;&#34;&#34;
+        This method is used to instantiate the class.
+
+        Args:
+            public_data_url (str, optional): [the url where the dataset can be accessed from]. Defaults to &#34;https://s3-us-west-2.amazonaws.com/usgs-lidar-public/&#34;.
+            pipeline_json_path (str, optional): [the json file describing the pipeline structure]. Defaults to &#34;../assets/get_data.json&#34;.
+        &#34;&#34;&#34;
+        self.logger = App_Logger().get_logger(__name__)
+        self.file_handler = FileHandler()
+        self.pipeline_json = self.file_handler.read_json(pipeline_json_path)
+        self.public_data_url = public_data_url
+        self.input_epsg = 3857
+        self.metadata = self.file_handler.read_csv(&#34;../assets/usgs_3dep_metadata.csv&#34;)
+        values = {&#34;year&#34;: 0}
+        self.metadata.fillna(value=values, inplace=True)
+
+    def get_polygon_boundaries(self, polygon: Polygon):
+        &#34;&#34;&#34;
+        This method returns the bounds and exterior coordinates of a polygon as strings.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+
+        Returns:
+            [tuple]: [bounds string and polygon exterior coordinates string]
+        &#34;&#34;&#34;
+        polygon_df = gpd.GeoDataFrame([polygon], columns=[&#39;geometry&#39;])
+
+        polygon_df.set_crs(epsg=self.output_epsg, inplace=True)
+        polygon_df[&#39;geometry&#39;] = polygon_df[&#39;geometry&#39;].to_crs(epsg=self.input_epsg)
+        minx, miny, maxx, maxy = polygon_df[&#39;geometry&#39;][0].bounds
+
+        polygon_input = &#39;POLYGON((&#39;
+        xcords, ycords = polygon_df[&#39;geometry&#39;][0].exterior.coords.xy
+        for x, y in zip(list(xcords), list(ycords)):
+            polygon_input += f&#39;{x} {y}, &#39;
+        polygon_input = polygon_input[:-2]
+        polygon_input += &#39;))&#39;
+
+        return f&#34;({[minx, maxx]},{[miny,maxy]})&#34;, polygon_input
+
+    def get_pipeline(self, region: str, polygon: Polygon):
+        &#34;&#34;&#34;
+        This method fills the empty values in the pipeline dictionary and creates a pdal pipeline object.
+
+        Args:
+            region (str): [the filename of the region where the data is extracted from]
+            polygon (Polygon): [a polygon object]
+
+        Returns:
+            [pdal.Pipeline]: [pdal pipeline object]
+        &#34;&#34;&#34;
+        boundaries, polygon_input = self.get_polygon_boundaries(polygon)
+
+        full_dataset_path = f&#34;{self.public_data_url}{region}/ept.json&#34;
+
+        self.pipeline_json[&#39;pipeline&#39;][0][&#39;filename&#39;] = full_dataset_path
+        self.pipeline_json[&#39;pipeline&#39;][0][&#39;bounds&#39;] = boundaries
+        self.pipeline_json[&#39;pipeline&#39;][1][&#39;polygon&#39;] = polygon_input
+        self.pipeline_json[&#39;pipeline&#39;][3][&#39;out_srs&#39;] = f&#39;EPSG:{self.output_epsg}&#39;
+
+        pipeline = pdal.Pipeline(json.dumps(self.pipeline_json))
+
+        return pipeline
+
+    def run_pipeline(self, polygon: Polygon, epsg, region: str = &#34;IA_FullState&#34;):
+        &#34;&#34;&#34;
+        This method runs a pdal pipeline and fetches data.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+            epsg (int): [the desired coordinate reference system(CRS)]
+            region (str, optional): [the filename of the region where the data is extracted from]. Defaults to &#34;IA_FullState&#34;.
+
+        Returns:
+            [pdal.Pipeline]: [pdal pipeline object]
+        &#34;&#34;&#34;
+        self.output_epsg = epsg
+        pipeline = self.get_pipeline(region, polygon)
+
+        try:
+            pipeline.execute()
+            self.logger.info(f&#39;Pipeline executed successfully.&#39;)
+            return pipeline
+        except RuntimeError as e:
+            self.logger.exception(&#39;Pipeline execution failed&#39;)
+            print(e)
+
+    def make_geo_df(self, arr: dict):
+        &#34;&#34;&#34;
+        This method creates a geopandas dataframe from a dictionary.
+
+        Args:
+            arr (dict): a point cloud data dictionary with X, Y and Z keys.
+
+        Returns:
+            [Geopandas.GeoDataFrame]: [a geopandas dataframe]
+        &#34;&#34;&#34;
+        geometry_points = [Point(x, y) for x, y in zip(arr[&#34;X&#34;], arr[&#34;Y&#34;])]
+        elevetions = arr[&#34;Z&#34;]
+        df = gpd.GeoDataFrame(columns=[&#34;elevation&#34;, &#34;geometry&#34;])
+        df[&#39;elevation&#39;] = elevetions
+        df[&#39;geometry&#39;] = geometry_points
+        df = df.set_geometry(&#34;geometry&#34;)
+        df.set_crs(self.output_epsg, inplace=True)
+        return df
+
+    def get_regions(self, polygon: Polygon, epsg: int) -&gt; list:
+        &#34;&#34;&#34;
+        This method fetches all the region filenames that contain the polygon.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+            epsg (int): [the desired coordinate reference system(CRS)]
+
+        Returns:
+            [list]: [list of all the region filenames that contain the polygon]
+        &#34;&#34;&#34;
+        self.output_epsg = epsg
+        polygon_df = gpd.GeoDataFrame([polygon], columns=[&#39;geometry&#39;])
+
+        polygon_df.set_crs(epsg=self.output_epsg, inplace=True)
+        polygon_df[&#39;geometry&#39;] = polygon_df[&#39;geometry&#39;].to_crs(epsg=self.input_epsg)
+        minx, miny, maxx, maxy = polygon_df[&#39;geometry&#39;][0].bounds
+
+        cond_xmin = self.metadata.xmin &lt;= minx
+        cond_xmax = self.metadata.xmax &gt;= maxx
+        cond_ymin = self.metadata.ymin &lt;= miny
+        cond_ymax = self.metadata.ymax &gt;= maxy
+
+        df = self.metadata[cond_xmin &amp; cond_xmax &amp; cond_ymin &amp; cond_ymax]
+        sort_df = df.sort_values(by=[&#39;year&#39;])
+        regions = sort_df[&#39;filename&#39;].to_list()
+        return regions
+
+    def get_region_data(self, polygon: Polygon, epsg: int, region: str):
+        &#34;&#34;&#34;
+        This method fetches data for a specific region filename.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+            epsg (int): [the desired coordinate reference system(CRS)]
+            region (str): [the filename of the region where the data is extracted from]
+
+        Returns:
+            [Geopandas.GeoDataFrame]: [a geopandas dataframe]
+        &#34;&#34;&#34;
+        pipeline = self.run_pipeline(polygon, epsg, region)
+        arr = pipeline.arrays[0]
+        return self.make_geo_df(arr)
+
+    def get_data(self, polygon: Polygon, epsg: int) -&gt; dict:
+        &#34;&#34;&#34;
+        This method fetches data from all regions that contain a polygon.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+            epsg (int): [the desired coordinate reference system(CRS)]
+
+        Returns:
+            [dict]: [a dictionary with the years as keys and the respective geodataframes as the
+            values for the specified polygon]
+        &#34;&#34;&#34;
+
+        regions = self.get_regions(polygon, epsg)
+        region_dict = {}
+        for region in regions:
+            year = int(self.metadata[self.metadata.filename == region].year.values[0])
+            if year == 0:
+                year = &#39;unknown&#39;
+            region_df = self.get_region_data(polygon, epsg, region)
+            empty = region_df.empty
+            if not empty:
+                region_dict[year] = region_df
+
+        return region_dict
+
+    def plot_terrain_3d(self, gdf: gpd.GeoDataFrame, fig_size: tuple=(12, 10), size: float=0.01):
+        &#34;&#34;&#34;
+        This method displays points in a geodataframe as a 3d scatter plot.
+
+        Args:
+            gdf (gpd.GeoDataFrame): [a geopandas dataframe containing points in the geometry column and height in the elevation column.]
+            fig_size (tuple, optional): [filesze of the figure to be displayed]. Defaults to (12, 10).
+            size (float, optional): [size of the points to be plotted]. Defaults to 0.01.
+        &#34;&#34;&#34;
+        fig, ax = plt.subplots(1, 1, figsize=fig_size)
+        ax = plt.axes(projection=&#39;3d&#39;)
+        ax.scatter(gdf.geometry.x, gdf.geometry.y, gdf.elevation, s=size)
+        plt.show()
+
+    def subsample(self, gdf: gpd.GeoDataFrame, res: int = 3):
+        &#34;&#34;&#34;
+        This method subsamples the points in a point cloud data using some resolution.
+
+        Args:
+            gdf (gpd.GeoDataFrame): [a geopandas dataframe containing points in the geometry column and height in the elevation column.]
+            res (int, optional): [resolution]. Defaults to 3.
+
+        Returns:
+            [Geopandas.GeoDataFrame]: [a geopandas dataframe]
+        &#34;&#34;&#34;
+
+        points = np.vstack((gdf.geometry.x, gdf.geometry.y, gdf.elevation)).transpose()
+
+        voxel_size=res
+
+        non_empty_voxel_keys, inverse, nb_pts_per_voxel = np.unique(((points - np.min(points, axis=0)) // voxel_size).astype(int), axis=0, return_inverse=True, return_counts=True)
+        idx_pts_vox_sorted=np.argsort(inverse)
+
+        voxel_grid={}
+        grid_barycenter=[]
+        last_seen=0
+
+        for idx,vox in enumerate(non_empty_voxel_keys):
+            voxel_grid[tuple(vox)]= points[idx_pts_vox_sorted[
+            last_seen:last_seen+nb_pts_per_voxel[idx]]]
+            grid_barycenter.append(np.mean(voxel_grid[tuple(vox)],axis=0))
+            last_seen+=nb_pts_per_voxel[idx]
+
+        sub_sampled =  np.array(grid_barycenter)
+        df_subsampled = gpd.GeoDataFrame(columns=[&#34;elevation&#34;, &#34;geometry&#34;])
+
+        geometry = [Point(x, y) for x, y in zip( sub_sampled[:, 0],  sub_sampled[:, 1])]
+
+        df_subsampled[&#39;elevation&#39;] = sub_sampled[:, 2]
+        df_subsampled[&#39;geometry&#39;] = geometry
+
+        return df_subsampled</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="lidar_processor.LidarProcessor"><code class="flex name class">
+<span>class <span class="ident">LidarProcessor</span></span>
+<span>(</span><span>public_data_url: str = 'https://s3-us-west-2.amazonaws.com/usgs-lidar-public/', pipeline_json_path: str = '../assets/get_data.json')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This class contains functons useful for fetching, manipulating, and visualizing LIDAR point cloud data.</p>
+<p>This method is used to instantiate the class.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>public_data_url</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>[the url where the dataset can be accessed from]. Defaults to "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/".</dd>
+<dt><strong><code>pipeline_json_path</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>[the json file describing the pipeline structure]. Defaults to "../assets/get_data.json".</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LidarProcessor:
+    &#34;&#34;&#34;
+    This class contains functons useful for fetching, manipulating, and visualizing LIDAR point cloud data.
+    &#34;&#34;&#34;
+
+    def __init__(self, public_data_url: str = &#34;https://s3-us-west-2.amazonaws.com/usgs-lidar-public/&#34;, pipeline_json_path: str=&#34;../assets/get_data.json&#34;) -&gt; None:
+        &#34;&#34;&#34;
+        This method is used to instantiate the class.
+
+        Args:
+            public_data_url (str, optional): [the url where the dataset can be accessed from]. Defaults to &#34;https://s3-us-west-2.amazonaws.com/usgs-lidar-public/&#34;.
+            pipeline_json_path (str, optional): [the json file describing the pipeline structure]. Defaults to &#34;../assets/get_data.json&#34;.
+        &#34;&#34;&#34;
+        self.logger = App_Logger().get_logger(__name__)
+        self.file_handler = FileHandler()
+        self.pipeline_json = self.file_handler.read_json(pipeline_json_path)
+        self.public_data_url = public_data_url
+        self.input_epsg = 3857
+        self.metadata = self.file_handler.read_csv(&#34;../assets/usgs_3dep_metadata.csv&#34;)
+        values = {&#34;year&#34;: 0}
+        self.metadata.fillna(value=values, inplace=True)
+
+    def get_polygon_boundaries(self, polygon: Polygon):
+        &#34;&#34;&#34;
+        This method returns the bounds and exterior coordinates of a polygon as strings.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+
+        Returns:
+            [tuple]: [bounds string and polygon exterior coordinates string]
+        &#34;&#34;&#34;
+        polygon_df = gpd.GeoDataFrame([polygon], columns=[&#39;geometry&#39;])
+
+        polygon_df.set_crs(epsg=self.output_epsg, inplace=True)
+        polygon_df[&#39;geometry&#39;] = polygon_df[&#39;geometry&#39;].to_crs(epsg=self.input_epsg)
+        minx, miny, maxx, maxy = polygon_df[&#39;geometry&#39;][0].bounds
+
+        polygon_input = &#39;POLYGON((&#39;
+        xcords, ycords = polygon_df[&#39;geometry&#39;][0].exterior.coords.xy
+        for x, y in zip(list(xcords), list(ycords)):
+            polygon_input += f&#39;{x} {y}, &#39;
+        polygon_input = polygon_input[:-2]
+        polygon_input += &#39;))&#39;
+
+        return f&#34;({[minx, maxx]},{[miny,maxy]})&#34;, polygon_input
+
+    def get_pipeline(self, region: str, polygon: Polygon):
+        &#34;&#34;&#34;
+        This method fills the empty values in the pipeline dictionary and creates a pdal pipeline object.
+
+        Args:
+            region (str): [the filename of the region where the data is extracted from]
+            polygon (Polygon): [a polygon object]
+
+        Returns:
+            [pdal.Pipeline]: [pdal pipeline object]
+        &#34;&#34;&#34;
+        boundaries, polygon_input = self.get_polygon_boundaries(polygon)
+
+        full_dataset_path = f&#34;{self.public_data_url}{region}/ept.json&#34;
+
+        self.pipeline_json[&#39;pipeline&#39;][0][&#39;filename&#39;] = full_dataset_path
+        self.pipeline_json[&#39;pipeline&#39;][0][&#39;bounds&#39;] = boundaries
+        self.pipeline_json[&#39;pipeline&#39;][1][&#39;polygon&#39;] = polygon_input
+        self.pipeline_json[&#39;pipeline&#39;][3][&#39;out_srs&#39;] = f&#39;EPSG:{self.output_epsg}&#39;
+
+        pipeline = pdal.Pipeline(json.dumps(self.pipeline_json))
+
+        return pipeline
+
+    def run_pipeline(self, polygon: Polygon, epsg, region: str = &#34;IA_FullState&#34;):
+        &#34;&#34;&#34;
+        This method runs a pdal pipeline and fetches data.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+            epsg (int): [the desired coordinate reference system(CRS)]
+            region (str, optional): [the filename of the region where the data is extracted from]. Defaults to &#34;IA_FullState&#34;.
+
+        Returns:
+            [pdal.Pipeline]: [pdal pipeline object]
+        &#34;&#34;&#34;
+        self.output_epsg = epsg
+        pipeline = self.get_pipeline(region, polygon)
+
+        try:
+            pipeline.execute()
+            self.logger.info(f&#39;Pipeline executed successfully.&#39;)
+            return pipeline
+        except RuntimeError as e:
+            self.logger.exception(&#39;Pipeline execution failed&#39;)
+            print(e)
+
+    def make_geo_df(self, arr: dict):
+        &#34;&#34;&#34;
+        This method creates a geopandas dataframe from a dictionary.
+
+        Args:
+            arr (dict): a point cloud data dictionary with X, Y and Z keys.
+
+        Returns:
+            [Geopandas.GeoDataFrame]: [a geopandas dataframe]
+        &#34;&#34;&#34;
+        geometry_points = [Point(x, y) for x, y in zip(arr[&#34;X&#34;], arr[&#34;Y&#34;])]
+        elevetions = arr[&#34;Z&#34;]
+        df = gpd.GeoDataFrame(columns=[&#34;elevation&#34;, &#34;geometry&#34;])
+        df[&#39;elevation&#39;] = elevetions
+        df[&#39;geometry&#39;] = geometry_points
+        df = df.set_geometry(&#34;geometry&#34;)
+        df.set_crs(self.output_epsg, inplace=True)
+        return df
+
+    def get_regions(self, polygon: Polygon, epsg: int) -&gt; list:
+        &#34;&#34;&#34;
+        This method fetches all the region filenames that contain the polygon.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+            epsg (int): [the desired coordinate reference system(CRS)]
+
+        Returns:
+            [list]: [list of all the region filenames that contain the polygon]
+        &#34;&#34;&#34;
+        self.output_epsg = epsg
+        polygon_df = gpd.GeoDataFrame([polygon], columns=[&#39;geometry&#39;])
+
+        polygon_df.set_crs(epsg=self.output_epsg, inplace=True)
+        polygon_df[&#39;geometry&#39;] = polygon_df[&#39;geometry&#39;].to_crs(epsg=self.input_epsg)
+        minx, miny, maxx, maxy = polygon_df[&#39;geometry&#39;][0].bounds
+
+        cond_xmin = self.metadata.xmin &lt;= minx
+        cond_xmax = self.metadata.xmax &gt;= maxx
+        cond_ymin = self.metadata.ymin &lt;= miny
+        cond_ymax = self.metadata.ymax &gt;= maxy
+
+        df = self.metadata[cond_xmin &amp; cond_xmax &amp; cond_ymin &amp; cond_ymax]
+        sort_df = df.sort_values(by=[&#39;year&#39;])
+        regions = sort_df[&#39;filename&#39;].to_list()
+        return regions
+
+    def get_region_data(self, polygon: Polygon, epsg: int, region: str):
+        &#34;&#34;&#34;
+        This method fetches data for a specific region filename.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+            epsg (int): [the desired coordinate reference system(CRS)]
+            region (str): [the filename of the region where the data is extracted from]
+
+        Returns:
+            [Geopandas.GeoDataFrame]: [a geopandas dataframe]
+        &#34;&#34;&#34;
+        pipeline = self.run_pipeline(polygon, epsg, region)
+        arr = pipeline.arrays[0]
+        return self.make_geo_df(arr)
+
+    def get_data(self, polygon: Polygon, epsg: int) -&gt; dict:
+        &#34;&#34;&#34;
+        This method fetches data from all regions that contain a polygon.
+
+        Args:
+            polygon (Polygon): [a polygon object]
+            epsg (int): [the desired coordinate reference system(CRS)]
+
+        Returns:
+            [dict]: [a dictionary with the years as keys and the respective geodataframes as the
+            values for the specified polygon]
+        &#34;&#34;&#34;
+
+        regions = self.get_regions(polygon, epsg)
+        region_dict = {}
+        for region in regions:
+            year = int(self.metadata[self.metadata.filename == region].year.values[0])
+            if year == 0:
+                year = &#39;unknown&#39;
+            region_df = self.get_region_data(polygon, epsg, region)
+            empty = region_df.empty
+            if not empty:
+                region_dict[year] = region_df
+
+        return region_dict
+
+    def plot_terrain_3d(self, gdf: gpd.GeoDataFrame, fig_size: tuple=(12, 10), size: float=0.01):
+        &#34;&#34;&#34;
+        This method displays points in a geodataframe as a 3d scatter plot.
+
+        Args:
+            gdf (gpd.GeoDataFrame): [a geopandas dataframe containing points in the geometry column and height in the elevation column.]
+            fig_size (tuple, optional): [filesze of the figure to be displayed]. Defaults to (12, 10).
+            size (float, optional): [size of the points to be plotted]. Defaults to 0.01.
+        &#34;&#34;&#34;
+        fig, ax = plt.subplots(1, 1, figsize=fig_size)
+        ax = plt.axes(projection=&#39;3d&#39;)
+        ax.scatter(gdf.geometry.x, gdf.geometry.y, gdf.elevation, s=size)
+        plt.show()
+
+    def subsample(self, gdf: gpd.GeoDataFrame, res: int = 3):
+        &#34;&#34;&#34;
+        This method subsamples the points in a point cloud data using some resolution.
+
+        Args:
+            gdf (gpd.GeoDataFrame): [a geopandas dataframe containing points in the geometry column and height in the elevation column.]
+            res (int, optional): [resolution]. Defaults to 3.
+
+        Returns:
+            [Geopandas.GeoDataFrame]: [a geopandas dataframe]
+        &#34;&#34;&#34;
+
+        points = np.vstack((gdf.geometry.x, gdf.geometry.y, gdf.elevation)).transpose()
+
+        voxel_size=res
+
+        non_empty_voxel_keys, inverse, nb_pts_per_voxel = np.unique(((points - np.min(points, axis=0)) // voxel_size).astype(int), axis=0, return_inverse=True, return_counts=True)
+        idx_pts_vox_sorted=np.argsort(inverse)
+
+        voxel_grid={}
+        grid_barycenter=[]
+        last_seen=0
+
+        for idx,vox in enumerate(non_empty_voxel_keys):
+            voxel_grid[tuple(vox)]= points[idx_pts_vox_sorted[
+            last_seen:last_seen+nb_pts_per_voxel[idx]]]
+            grid_barycenter.append(np.mean(voxel_grid[tuple(vox)],axis=0))
+            last_seen+=nb_pts_per_voxel[idx]
+
+        sub_sampled =  np.array(grid_barycenter)
+        df_subsampled = gpd.GeoDataFrame(columns=[&#34;elevation&#34;, &#34;geometry&#34;])
+
+        geometry = [Point(x, y) for x, y in zip( sub_sampled[:, 0],  sub_sampled[:, 1])]
+
+        df_subsampled[&#39;elevation&#39;] = sub_sampled[:, 2]
+        df_subsampled[&#39;geometry&#39;] = geometry
+
+        return df_subsampled</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="lidar_processor.LidarProcessor.get_data"><code class="name flex">
+<span>def <span class="ident">get_data</span></span>(<span>self, polygon: shapely.geometry.polygon.Polygon, epsg: int) -> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method fetches data from all regions that contain a polygon.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>polygon</code></strong> :&ensp;<code>Polygon</code></dt>
+<dd>[a polygon object]</dd>
+<dt><strong><code>epsg</code></strong> :&ensp;<code>int</code></dt>
+<dd>[the desired coordinate reference system(CRS)]</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>[dict]</code></dt>
+<dd>[a dictionary with the years as keys and the respective geodataframes as the</dd>
+<dt><code>values for the specified polygon]</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_data(self, polygon: Polygon, epsg: int) -&gt; dict:
+    &#34;&#34;&#34;
+    This method fetches data from all regions that contain a polygon.
+
+    Args:
+        polygon (Polygon): [a polygon object]
+        epsg (int): [the desired coordinate reference system(CRS)]
+
+    Returns:
+        [dict]: [a dictionary with the years as keys and the respective geodataframes as the
+        values for the specified polygon]
+    &#34;&#34;&#34;
+
+    regions = self.get_regions(polygon, epsg)
+    region_dict = {}
+    for region in regions:
+        year = int(self.metadata[self.metadata.filename == region].year.values[0])
+        if year == 0:
+            year = &#39;unknown&#39;
+        region_df = self.get_region_data(polygon, epsg, region)
+        empty = region_df.empty
+        if not empty:
+            region_dict[year] = region_df
+
+    return region_dict</code></pre>
+</details>
+</dd>
+<dt id="lidar_processor.LidarProcessor.get_pipeline"><code class="name flex">
+<span>def <span class="ident">get_pipeline</span></span>(<span>self, region: str, polygon: shapely.geometry.polygon.Polygon)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method fills the empty values in the pipeline dictionary and creates a pdal pipeline object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>region</code></strong> :&ensp;<code>str</code></dt>
+<dd>[the filename of the region where the data is extracted from]</dd>
+<dt><strong><code>polygon</code></strong> :&ensp;<code>Polygon</code></dt>
+<dd>[a polygon object]</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>[pdal.Pipeline]</code></dt>
+<dd>[pdal pipeline object]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pipeline(self, region: str, polygon: Polygon):
+    &#34;&#34;&#34;
+    This method fills the empty values in the pipeline dictionary and creates a pdal pipeline object.
+
+    Args:
+        region (str): [the filename of the region where the data is extracted from]
+        polygon (Polygon): [a polygon object]
+
+    Returns:
+        [pdal.Pipeline]: [pdal pipeline object]
+    &#34;&#34;&#34;
+    boundaries, polygon_input = self.get_polygon_boundaries(polygon)
+
+    full_dataset_path = f&#34;{self.public_data_url}{region}/ept.json&#34;
+
+    self.pipeline_json[&#39;pipeline&#39;][0][&#39;filename&#39;] = full_dataset_path
+    self.pipeline_json[&#39;pipeline&#39;][0][&#39;bounds&#39;] = boundaries
+    self.pipeline_json[&#39;pipeline&#39;][1][&#39;polygon&#39;] = polygon_input
+    self.pipeline_json[&#39;pipeline&#39;][3][&#39;out_srs&#39;] = f&#39;EPSG:{self.output_epsg}&#39;
+
+    pipeline = pdal.Pipeline(json.dumps(self.pipeline_json))
+
+    return pipeline</code></pre>
+</details>
+</dd>
+<dt id="lidar_processor.LidarProcessor.get_polygon_boundaries"><code class="name flex">
+<span>def <span class="ident">get_polygon_boundaries</span></span>(<span>self, polygon: shapely.geometry.polygon.Polygon)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method returns the bounds and exterior coordinates of a polygon as strings.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>polygon</code></strong> :&ensp;<code>Polygon</code></dt>
+<dd>[a polygon object]</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>[tuple]</code></dt>
+<dd>[bounds string and polygon exterior coordinates string]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_polygon_boundaries(self, polygon: Polygon):
+    &#34;&#34;&#34;
+    This method returns the bounds and exterior coordinates of a polygon as strings.
+
+    Args:
+        polygon (Polygon): [a polygon object]
+
+    Returns:
+        [tuple]: [bounds string and polygon exterior coordinates string]
+    &#34;&#34;&#34;
+    polygon_df = gpd.GeoDataFrame([polygon], columns=[&#39;geometry&#39;])
+
+    polygon_df.set_crs(epsg=self.output_epsg, inplace=True)
+    polygon_df[&#39;geometry&#39;] = polygon_df[&#39;geometry&#39;].to_crs(epsg=self.input_epsg)
+    minx, miny, maxx, maxy = polygon_df[&#39;geometry&#39;][0].bounds
+
+    polygon_input = &#39;POLYGON((&#39;
+    xcords, ycords = polygon_df[&#39;geometry&#39;][0].exterior.coords.xy
+    for x, y in zip(list(xcords), list(ycords)):
+        polygon_input += f&#39;{x} {y}, &#39;
+    polygon_input = polygon_input[:-2]
+    polygon_input += &#39;))&#39;
+
+    return f&#34;({[minx, maxx]},{[miny,maxy]})&#34;, polygon_input</code></pre>
+</details>
+</dd>
+<dt id="lidar_processor.LidarProcessor.get_region_data"><code class="name flex">
+<span>def <span class="ident">get_region_data</span></span>(<span>self, polygon: shapely.geometry.polygon.Polygon, epsg: int, region: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method fetches data for a specific region filename.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>polygon</code></strong> :&ensp;<code>Polygon</code></dt>
+<dd>[a polygon object]</dd>
+<dt><strong><code>epsg</code></strong> :&ensp;<code>int</code></dt>
+<dd>[the desired coordinate reference system(CRS)]</dd>
+<dt><strong><code>region</code></strong> :&ensp;<code>str</code></dt>
+<dd>[the filename of the region where the data is extracted from]</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>[Geopandas.GeoDataFrame]</code></dt>
+<dd>[a geopandas dataframe]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_region_data(self, polygon: Polygon, epsg: int, region: str):
+    &#34;&#34;&#34;
+    This method fetches data for a specific region filename.
+
+    Args:
+        polygon (Polygon): [a polygon object]
+        epsg (int): [the desired coordinate reference system(CRS)]
+        region (str): [the filename of the region where the data is extracted from]
+
+    Returns:
+        [Geopandas.GeoDataFrame]: [a geopandas dataframe]
+    &#34;&#34;&#34;
+    pipeline = self.run_pipeline(polygon, epsg, region)
+    arr = pipeline.arrays[0]
+    return self.make_geo_df(arr)</code></pre>
+</details>
+</dd>
+<dt id="lidar_processor.LidarProcessor.get_regions"><code class="name flex">
+<span>def <span class="ident">get_regions</span></span>(<span>self, polygon: shapely.geometry.polygon.Polygon, epsg: int) -> list</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method fetches all the region filenames that contain the polygon.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>polygon</code></strong> :&ensp;<code>Polygon</code></dt>
+<dd>[a polygon object]</dd>
+<dt><strong><code>epsg</code></strong> :&ensp;<code>int</code></dt>
+<dd>[the desired coordinate reference system(CRS)]</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>[list]</code></dt>
+<dd>[list of all the region filenames that contain the polygon]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_regions(self, polygon: Polygon, epsg: int) -&gt; list:
+    &#34;&#34;&#34;
+    This method fetches all the region filenames that contain the polygon.
+
+    Args:
+        polygon (Polygon): [a polygon object]
+        epsg (int): [the desired coordinate reference system(CRS)]
+
+    Returns:
+        [list]: [list of all the region filenames that contain the polygon]
+    &#34;&#34;&#34;
+    self.output_epsg = epsg
+    polygon_df = gpd.GeoDataFrame([polygon], columns=[&#39;geometry&#39;])
+
+    polygon_df.set_crs(epsg=self.output_epsg, inplace=True)
+    polygon_df[&#39;geometry&#39;] = polygon_df[&#39;geometry&#39;].to_crs(epsg=self.input_epsg)
+    minx, miny, maxx, maxy = polygon_df[&#39;geometry&#39;][0].bounds
+
+    cond_xmin = self.metadata.xmin &lt;= minx
+    cond_xmax = self.metadata.xmax &gt;= maxx
+    cond_ymin = self.metadata.ymin &lt;= miny
+    cond_ymax = self.metadata.ymax &gt;= maxy
+
+    df = self.metadata[cond_xmin &amp; cond_xmax &amp; cond_ymin &amp; cond_ymax]
+    sort_df = df.sort_values(by=[&#39;year&#39;])
+    regions = sort_df[&#39;filename&#39;].to_list()
+    return regions</code></pre>
+</details>
+</dd>
+<dt id="lidar_processor.LidarProcessor.make_geo_df"><code class="name flex">
+<span>def <span class="ident">make_geo_df</span></span>(<span>self, arr: dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method creates a geopandas dataframe from a dictionary.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>arr</code></strong> :&ensp;<code>dict</code></dt>
+<dd>a point cloud data dictionary with X, Y and Z keys.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>[Geopandas.GeoDataFrame]</code></dt>
+<dd>[a geopandas dataframe]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def make_geo_df(self, arr: dict):
+    &#34;&#34;&#34;
+    This method creates a geopandas dataframe from a dictionary.
+
+    Args:
+        arr (dict): a point cloud data dictionary with X, Y and Z keys.
+
+    Returns:
+        [Geopandas.GeoDataFrame]: [a geopandas dataframe]
+    &#34;&#34;&#34;
+    geometry_points = [Point(x, y) for x, y in zip(arr[&#34;X&#34;], arr[&#34;Y&#34;])]
+    elevetions = arr[&#34;Z&#34;]
+    df = gpd.GeoDataFrame(columns=[&#34;elevation&#34;, &#34;geometry&#34;])
+    df[&#39;elevation&#39;] = elevetions
+    df[&#39;geometry&#39;] = geometry_points
+    df = df.set_geometry(&#34;geometry&#34;)
+    df.set_crs(self.output_epsg, inplace=True)
+    return df</code></pre>
+</details>
+</dd>
+<dt id="lidar_processor.LidarProcessor.plot_terrain_3d"><code class="name flex">
+<span>def <span class="ident">plot_terrain_3d</span></span>(<span>self, gdf: geopandas.geodataframe.GeoDataFrame, fig_size: tuple = (12, 10), size: float = 0.01)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method displays points in a geodataframe as a 3d scatter plot.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>gdf</code></strong> :&ensp;<code>gpd.GeoDataFrame</code></dt>
+<dd>[a geopandas dataframe containing points in the geometry column and height in the elevation column.]</dd>
+<dt><strong><code>fig_size</code></strong> :&ensp;<code>tuple</code>, optional</dt>
+<dd>[filesze of the figure to be displayed]. Defaults to (12, 10).</dd>
+<dt><strong><code>size</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>[size of the points to be plotted]. Defaults to 0.01.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plot_terrain_3d(self, gdf: gpd.GeoDataFrame, fig_size: tuple=(12, 10), size: float=0.01):
+    &#34;&#34;&#34;
+    This method displays points in a geodataframe as a 3d scatter plot.
+
+    Args:
+        gdf (gpd.GeoDataFrame): [a geopandas dataframe containing points in the geometry column and height in the elevation column.]
+        fig_size (tuple, optional): [filesze of the figure to be displayed]. Defaults to (12, 10).
+        size (float, optional): [size of the points to be plotted]. Defaults to 0.01.
+    &#34;&#34;&#34;
+    fig, ax = plt.subplots(1, 1, figsize=fig_size)
+    ax = plt.axes(projection=&#39;3d&#39;)
+    ax.scatter(gdf.geometry.x, gdf.geometry.y, gdf.elevation, s=size)
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="lidar_processor.LidarProcessor.run_pipeline"><code class="name flex">
+<span>def <span class="ident">run_pipeline</span></span>(<span>self, polygon: shapely.geometry.polygon.Polygon, epsg, region: str = 'IA_FullState')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method runs a pdal pipeline and fetches data.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>polygon</code></strong> :&ensp;<code>Polygon</code></dt>
+<dd>[a polygon object]</dd>
+<dt><strong><code>epsg</code></strong> :&ensp;<code>int</code></dt>
+<dd>[the desired coordinate reference system(CRS)]</dd>
+<dt><strong><code>region</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>[the filename of the region where the data is extracted from]. Defaults to "IA_FullState".</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>[pdal.Pipeline]</code></dt>
+<dd>[pdal pipeline object]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_pipeline(self, polygon: Polygon, epsg, region: str = &#34;IA_FullState&#34;):
+    &#34;&#34;&#34;
+    This method runs a pdal pipeline and fetches data.
+
+    Args:
+        polygon (Polygon): [a polygon object]
+        epsg (int): [the desired coordinate reference system(CRS)]
+        region (str, optional): [the filename of the region where the data is extracted from]. Defaults to &#34;IA_FullState&#34;.
+
+    Returns:
+        [pdal.Pipeline]: [pdal pipeline object]
+    &#34;&#34;&#34;
+    self.output_epsg = epsg
+    pipeline = self.get_pipeline(region, polygon)
+
+    try:
+        pipeline.execute()
+        self.logger.info(f&#39;Pipeline executed successfully.&#39;)
+        return pipeline
+    except RuntimeError as e:
+        self.logger.exception(&#39;Pipeline execution failed&#39;)
+        print(e)</code></pre>
+</details>
+</dd>
+<dt id="lidar_processor.LidarProcessor.subsample"><code class="name flex">
+<span>def <span class="ident">subsample</span></span>(<span>self, gdf: geopandas.geodataframe.GeoDataFrame, res: int = 3)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This method subsamples the points in a point cloud data using some resolution.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>gdf</code></strong> :&ensp;<code>gpd.GeoDataFrame</code></dt>
+<dd>[a geopandas dataframe containing points in the geometry column and height in the elevation column.]</dd>
+<dt><strong><code>res</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>[resolution]. Defaults to 3.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>[Geopandas.GeoDataFrame]</code></dt>
+<dd>[a geopandas dataframe]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def subsample(self, gdf: gpd.GeoDataFrame, res: int = 3):
+    &#34;&#34;&#34;
+    This method subsamples the points in a point cloud data using some resolution.
+
+    Args:
+        gdf (gpd.GeoDataFrame): [a geopandas dataframe containing points in the geometry column and height in the elevation column.]
+        res (int, optional): [resolution]. Defaults to 3.
+
+    Returns:
+        [Geopandas.GeoDataFrame]: [a geopandas dataframe]
+    &#34;&#34;&#34;
+
+    points = np.vstack((gdf.geometry.x, gdf.geometry.y, gdf.elevation)).transpose()
+
+    voxel_size=res
+
+    non_empty_voxel_keys, inverse, nb_pts_per_voxel = np.unique(((points - np.min(points, axis=0)) // voxel_size).astype(int), axis=0, return_inverse=True, return_counts=True)
+    idx_pts_vox_sorted=np.argsort(inverse)
+
+    voxel_grid={}
+    grid_barycenter=[]
+    last_seen=0
+
+    for idx,vox in enumerate(non_empty_voxel_keys):
+        voxel_grid[tuple(vox)]= points[idx_pts_vox_sorted[
+        last_seen:last_seen+nb_pts_per_voxel[idx]]]
+        grid_barycenter.append(np.mean(voxel_grid[tuple(vox)],axis=0))
+        last_seen+=nb_pts_per_voxel[idx]
+
+    sub_sampled =  np.array(grid_barycenter)
+    df_subsampled = gpd.GeoDataFrame(columns=[&#34;elevation&#34;, &#34;geometry&#34;])
+
+    geometry = [Point(x, y) for x, y in zip( sub_sampled[:, 0],  sub_sampled[:, 1])]
+
+    df_subsampled[&#39;elevation&#39;] = sub_sampled[:, 2]
+    df_subsampled[&#39;geometry&#39;] = geometry
+
+    return df_subsampled</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="lidar_processor.LidarProcessor" href="#lidar_processor.LidarProcessor">LidarProcessor</a></code></h4>
+<ul class="">
+<li><code><a title="lidar_processor.LidarProcessor.get_data" href="#lidar_processor.LidarProcessor.get_data">get_data</a></code></li>
+<li><code><a title="lidar_processor.LidarProcessor.get_pipeline" href="#lidar_processor.LidarProcessor.get_pipeline">get_pipeline</a></code></li>
+<li><code><a title="lidar_processor.LidarProcessor.get_polygon_boundaries" href="#lidar_processor.LidarProcessor.get_polygon_boundaries">get_polygon_boundaries</a></code></li>
+<li><code><a title="lidar_processor.LidarProcessor.get_region_data" href="#lidar_processor.LidarProcessor.get_region_data">get_region_data</a></code></li>
+<li><code><a title="lidar_processor.LidarProcessor.get_regions" href="#lidar_processor.LidarProcessor.get_regions">get_regions</a></code></li>
+<li><code><a title="lidar_processor.LidarProcessor.make_geo_df" href="#lidar_processor.LidarProcessor.make_geo_df">make_geo_df</a></code></li>
+<li><code><a title="lidar_processor.LidarProcessor.plot_terrain_3d" href="#lidar_processor.LidarProcessor.plot_terrain_3d">plot_terrain_3d</a></code></li>
+<li><code><a title="lidar_processor.LidarProcessor.run_pipeline" href="#lidar_processor.LidarProcessor.run_pipeline">run_pipeline</a></code></li>
+<li><code><a title="lidar_processor.LidarProcessor.subsample" href="#lidar_processor.LidarProcessor.subsample">subsample</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.1</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
