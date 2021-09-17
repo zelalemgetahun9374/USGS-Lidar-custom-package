@@ -67,5 +67,3 @@ This package is dependent on the following python packages.
 * PDAL
 * Shapely
 * Geopandas
-```
-
